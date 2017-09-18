@@ -3,7 +3,7 @@
 
 <br />
 <br />
-<form action="/login" method="post" class="form-inline">
+<form action="/summarize" method="post" class="form-inline">
     <div class="row">
         <div class="form-group col-md-7" >
             <input name="articleURL" class="form-control " style="max-width:100%" type="url" required placeholder="Washington post article url"/>
