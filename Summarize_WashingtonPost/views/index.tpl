@@ -26,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-default" style="max-height:75vh;overflow:scroll">
+            <div class="panel panel-default" style="max-height:75vh;overflow:auto">
                 <div class="panel-heading">
                     <h3 class="panel-title">Original article</h3>
                 </div>
@@ -39,7 +39,7 @@
         <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Summary article</h3>
+                    <h3 class="panel-title">Summary of article</h3>
                 </div>
                 <div class="panel-body">
                     {{Summary}}
