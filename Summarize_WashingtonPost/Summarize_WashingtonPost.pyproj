@@ -18,8 +18,8 @@
     <PythonWsgiHandler>{StartupModule}.wsgi_app()</PythonWsgiHandler>
     <Name>Summarize_WashingtonPost</Name>
     <RootNamespace>Summarize_WashingtonPost</RootNamespace>
-    <InterpreterId>{24ebe81b-8638-4055-9d6b-1c66983d603b}</InterpreterId>
-    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterId>{7a7b6f41-31e2-42c5-87e1-32e3fe58c731}</InterpreterId>
+    <InterpreterVersion>3.4</InterpreterVersion>
     <NameOfLastUsedPublishProfile>SummarizeML - Web Deploy</NameOfLastUsedPublishProfile>
     <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
@@ -73,6 +73,17 @@
     <Content Include="views\layout.tpl" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>{7a7b6f41-31e2-42c5-87e1-32e3fe58c731}</Id>
+      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
+      <Version>3.4</Version>
+      <Description>env1 (Python 64-bit 3.4)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>Amd64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>{24ebe81b-8638-4055-9d6b-1c66983d603b}</Id>
       <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
@@ -84,6 +95,9 @@
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
       <Architecture>Amd64</Architecture>
     </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{9a7a9026-48c1-4688-9d5d-e5699d47d074}\3.4" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
