@@ -60,6 +60,7 @@ def do_post():
     #Get the summarized text
     if 'washingtonpost' in articleUrl:
         
+
         text = getTextWaPo(articleUrl);
 
         if no_of_lines != "" :
@@ -68,16 +69,9 @@ def do_post():
 
         summary = summarize(text,default_no_of_lines)
 
-        return dict(year = datetime.now().year,
-                    OriginalText=text,
-                    Summary=summary)
+        return dict(year = datetime.now().year,OriginalText=text,Summary='summary')
 
-    return dict(year = datetime.now().year,
-                OriginalText="Sorry we only process washington post articles only!!",
-                Summary=" "
-                    )
-
-
+    return dict(year = datetime.now().year,OriginalText="Sorry we only process washington post articles only!!",Summary=" ")
 
 
 
@@ -89,24 +83,28 @@ def getTextWaPo(url):
 
 
 def summarize(text,n):
-    sents = sent_tokenize(text)
+    try:
 
-    assert n <= len(sents)
+        sents = sent_tokenize(text)
+        assert n <= len(sents)
 
-    word_sents = word_tokenize(text.lower())
-    _stopwords = set(stopwords.words('english') + list(punctuation))
+        word_sents = word_tokenize(text.lower())
+        #_stopwords = set(stopwords.words('english') + list(punctuation))
 
-    word_sent = [word for word in word_sents if word not in _stopwords]
-    freq = FreqDist(word_sent)
+        #word_sent = [word for word in word_sents if word not in _stopwords]
+        freq = FreqDist(word_sent)
 
-    ranking = defaultdict(int)
+        ranking = defaultdict(int)
 
-    for i,sent in enumerate(sents):
-        for w in word_tokenize(sent.lower()):
-            if w in freq:
-                ranking[i] += freq[w]
+        for i,sent in enumerate(sents):
+            for w in word_tokenize(sent.lower()):
+                if w in freq:
+                    ranking[i] += freq[w]
 
-    sents_idx = nlargest(n,ranking,key = ranking.get)
-    summary =  [sents[j] for j in sorted(sents_idx)]
+        sents_idx = nlargest(n,ranking,key = ranking.get)
+        summary =  [sents[j] for j in sorted(sents_idx)]
 
-    return ' '.join(summary)
+        return ' '.join(summary)
+
+    except:
+        return sys.exc_info()[0]
