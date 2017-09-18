@@ -58,20 +58,26 @@ def do_post():
 
     #Get the original text
     #Get the summarized text
+    if 'washingtonpost' in articleUrl:
+        
+        text = getTextWaPo(articleUrl);
 
-    text = getTextWaPo(articleUrl);
+        if no_of_lines != "" :
+            default_no_of_lines = int(no_of_lines)
 
 
-    if no_of_lines != "" :
-        default_no_of_lines = int(no_of_lines)
+        summary = summarize(text,default_no_of_lines)
 
-
-    summary = summarize(text,default_no_of_lines)
+        return dict(year = datetime.now().year,
+                    OriginalText=text,
+                    Summary=summary)
 
     return dict(year = datetime.now().year,
-                OriginalText=text,
-                Summary=summary)
-   
+                OriginalText="Sorry we only process washington post articles only!!",
+                Summary=" "
+                    )
+
+
 
 
 

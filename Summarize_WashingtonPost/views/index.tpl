@@ -26,11 +26,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <p class="text-success ">{{OriginalText}}</p>
+            <div class="panel panel-default" style="max-height:75vh;overflow:scroll">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Original article</h3>
+                </div>
+                <div class="panel-body">
+                    {{OriginalText}}
+                </div>
+            </div>
         </div>
 
         <div class="col-md-6">
-            {{Summary}}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Summary article</h3>
+                </div>
+                <div class="panel-body">
+                    {{Summary}}
+                </div>
+            </div>
         </div>
     </div>
 </div>
