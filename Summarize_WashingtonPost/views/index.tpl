@@ -26,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <p class="text-justify ">{{OriginalText}}</p>
+            <p class="text-success ">{{OriginalText}}</p>
         </div>
 
         <div class="col-md-6">

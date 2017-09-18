@@ -62,4 +62,4 @@ def getTextWaPo(url):
     page = urllib.request.urlopen(url).read().decode('utf8')
     soup = BeautifulSoup(page,'html.parser')
     text = ' '.join(map(lambda p: p.text,soup.find_all('article')))
-    return text.encode('ascii',errors='replace')#.replace('?'," ")
+    return str(text.encode('ascii',errors='replace')).replace('?'," ")
